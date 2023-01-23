@@ -53,14 +53,13 @@ for (let i = 0; i < regionSearch.length; i++) {
 	selectTag.innerHTML = `${regionSearch[i]}`;
 	bottontwo.appendChild(selectTag);
 }
-let selectTag1 = document.getElementsById('selectTag');
-selectTag1.addEventListener('click', () => {
-	let select = document.querySelector('.select');
-	console.log(select);
-	debugger;
-	for (let i = 0; i < select.length; i++) {
-		let search = select[i].children[1].textContent.toUpperCase();
-		if (search.includes(selectTagInput.toUpperCase())) {
+
+bottontwo.addEventListener('change', (e) => {
+	let change = e.target.value;
+	let boxes = document.getElementsByClassName('box');
+	for (let i = 0; i < boxes.length; i++) {
+		let search = boxes[i].children[5].textContent.toUpperCase();
+		if (search.includes(change.toUpperCase())) {
 			boxes[i].style.display = '';
 		} else {
 			boxes[i].style.display = 'none';
@@ -68,16 +67,6 @@ selectTag1.addEventListener('click', () => {
 	}
 });
 
-// allTheBotton.className = 'allTheBotton';
-// allTheBotton.id = 'allTheBotton';
-// bottontwo.addEventListener('click', () => {
-// 	let catagories = document.getElementsByClassName('allTheBotton')[0];
-// 	if ((catagories.id = 'allTheBotton')) {
-// 		catagories.id = 'afterClick';
-// 	} else {
-// 		catagories.id = 'allTheBotton';
-// 	}
-// });
 //input - search
 let input = document.createElement('input');
 let bottonInput = document.createElement('botton');
